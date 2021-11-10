@@ -1,4 +1,5 @@
 #include<iostream>
+#include<conio.h>
 
 class Maze
 {
@@ -51,6 +52,17 @@ bool Maze::Init()
 
 		for (unsigned short c = 0; c < columns; maze[r][c] = 'X', c++);
 	}
+}
+
+short Maze::GetKeyCode()
+{
+	short keyCode;
+	keyCode = _getch();
+
+	if ((keyCode == 0) || keyCode == 224)
+		keyCode = _getch();
+
+	return keyCode;
 }
 
 int main()
