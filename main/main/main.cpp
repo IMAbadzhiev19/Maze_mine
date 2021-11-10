@@ -29,12 +29,13 @@ Maze::Maze(short row, short col) : rows(row), columns(col), currentRow(0), curre
 
 void Maze::Show()
 {
+	for (unsigned short r = 0; r < rows; r++)
+	{
+		for (unsigned short c = 0; c < columns; c++)
+			std::cout << maze[r][c];
 
-}
-
-bool Maze::Go()
-{
-
+		std::cout << std::endl;
+	}
 }
 
 bool Maze::Init()
@@ -48,11 +49,12 @@ bool Maze::Init()
 		if (!maze[r])
 			return false;
 
-		for (unsigned short c = 0; c < columns, maze[r][c] = 'X'; c++);
+		for (unsigned short c = 0; c < columns; maze[r][c] = 'X', c++);
 	}
 }
 
 int main()
 {
-
+	Maze m(10, 30);
+	m.Show();
 }
