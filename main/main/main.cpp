@@ -1,20 +1,58 @@
-// main.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+#include<iostream>
 
-#include <iostream>
+class Maze
+{
+public:
+
+	Maze(short row, short col);
+	void Show();
+	bool Go();
+
+private:
+
+	bool Init();
+	short GetKeyCode();
+	void GeneratePath();
+	char** maze;
+	unsigned short rows, columns;
+	short currentRow, currentColumn;
+};
+
+Maze::Maze(short row, short col) : rows(row), columns(col), currentRow(0), currentColumn(0), maze(nullptr)
+{
+	if (!Init()) {
+		std::cout << "Failed" << std::endl;
+		system("pause");
+		exit(1);
+	}
+}
+
+void Maze::Show()
+{
+
+}
+
+bool Maze::Go()
+{
+
+}
+
+bool Maze::Init()
+{
+	maze = new char* [rows];
+	if (!maze)
+		return false;
+	for (unsigned short r = 0; r < rows; r++)
+	{
+		maze[r] = new char[columns];
+		if (!maze[r])
+			return false;
+
+		for (unsigned short c = 0; c < columns, maze[r][c] = 'X'; c++);
+	}
+}
 
 int main()
 {
-    std::cout << "Hello World!\n";
+
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
