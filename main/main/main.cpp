@@ -1,5 +1,6 @@
 #include<iostream>
-#include<conio.h>
+#include<conio.h> //used for _getch()
+#include<windows.h>
 
 class Maze
 {
@@ -39,6 +40,41 @@ void Maze::Show()
 	}
 }
 
+bool Maze::Go()
+{
+	short code, newRow, newCol;
+
+	do
+	{
+		newRow = currentRow;
+		newCol = currentColumn;
+
+		code = GetKeyCode();
+
+		switch (code)
+		{
+		case 72: newRow--; break;
+		case 75: newCol--; break;
+		case 77: newCol++; break;
+		case 80: newRow++; break;
+		default: Beep(500, 250); break;
+		}
+
+		if ((newRow >= 0) && (newRow < rows) && (newCol >= 0) && (newCol < columns) && (maze[newRow][newCol] == ' '))
+		{
+			maze[currentRow][currentColumn] = ' ';
+			currentRow = newRow;
+			currentColumn = newCol;
+			maze[currentRow][currentColumn] = '*';
+		}
+		else
+			Beep(500, 250);
+
+	} while ((currentRow != rows - 1) || (currentColumn != columns - 1));
+
+	return false;
+}
+
 bool Maze::Init()
 {
 	maze = new char* [rows];
@@ -52,6 +88,9 @@ bool Maze::Init()
 
 		for (unsigned short c = 0; c < columns; maze[r][c] = 'X', c++);
 	}
+
+	maze[0][0] = '*';
+	return true;
 }
 
 short Maze::GetKeyCode()
