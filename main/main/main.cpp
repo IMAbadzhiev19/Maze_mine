@@ -32,12 +32,33 @@ Maze::Maze(short row, short col) : rows(row), columns(col), currentRow(0), curre
 
 void Maze::Show()
 {
+	system("cls");
+	const char fence = 'O';
+
+	for (unsigned short i = 0; i < columns + 2; i++)
+	{
+		std::cout << fence;
+	}
+
+	std::cout << std::endl;
+
 	for (unsigned short r = 0; r < rows; r++)
 	{
+		for (unsigned short left = 0; left < 1; left++)
+			std::cout << fence;
+
 		for (unsigned short c = 0; c < columns; c++)
 			std::cout << maze[r][c];
 
+		for (unsigned short right = 0; right < 1; right++)
+			std::cout << fence;
+
 		std::cout << std::endl;
+	}
+
+	for (unsigned short i = 0; i < columns + 2; i++)
+	{
+		std::cout << fence;
 	}
 }
 
@@ -69,8 +90,6 @@ bool Maze::Go()
 			maze[currentRow][currentColumn] = '*';
 			Show();
 		}
-		else
-			Beep(500, 250);
 
 	} while ((currentRow != rows - 1) || (currentColumn != columns - 1));
 
@@ -194,11 +213,93 @@ void Maze::GeneratePath()
 	} while (!((r == rows - 1) && (c == columns - 1)));
 }
 
+void gotoXY(int x, int y)
+{
+	COORD coords;
+	coords.X = x;
+	coords.Y = y;
+
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coords);
+}
+
+void displayMenu()
+{
+	system("cls");
+
+	char key;
+	int y = 2, choice = 0;
+
+	bool flag = true;
+
+	gotoXY(5, 0); std::cout << "MAZE MENU";
+	gotoXY(3, 2); std::cout << "->";
+
+	while (flag == true)
+	{
+		gotoXY(5, 2); std::cout << "Maze game";
+		gotoXY(5, 3); std::cout << "Guide";
+		gotoXY(5, 4); std::cout << "Quit\n";
+
+		system("pause>nul");
+
+		if (GetAsyncKeyState(VK_DOWN) && y != 4)
+		{
+			gotoXY(3, y); std::cout << "  ";
+			y++;
+			gotoXY(3, y); std::cout << "->";
+			choice++;
+			continue;
+		}
+
+		if (GetAsyncKeyState(VK_UP) && y != 2)
+		{
+			gotoXY(3, y); std::cout << "  ";
+			y--;
+			gotoXY(3, y); std::cout << "->";
+			choice--;
+			continue;
+		}
+
+		if (GetAsyncKeyState(VK_RETURN))
+		{
+			system("cls");
+
+			switch (choice)
+			{
+			case 0:
+			{
+				int rows, columns;
+
+				std::cout << "Enter the height of the maze: "; std::cin >> rows;
+				std::cout << "Enter the width of the maze: "; std::cin >> columns;
+
+				Maze maze(rows, columns);
+				maze.Go();
+
+				system("cls");
+
+				std::cout << "\nThe game has ended" << std::endl;
+				flag = false;
+
+			} break;
+			case 1:
+			{
+				std::cout << "In maintenance" << std::endl;
+				flag = false;
+			} break;
+			case 2:
+			{
+				std::cout << "You have successfully exited" << std::endl;
+				flag = false;
+			} break;
+			} //switch
+		}
+	}
+
+	exit(0);
+}
+
 int main()
 {
-	int rows, column;
-	std::cin >> rows >> column;
-
-	Maze m(rows, column);
-	m.Go();
+	displayMenu();
 }
