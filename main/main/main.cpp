@@ -196,6 +196,9 @@ void Maze::GeneratePath()
 
 int main()
 {
-	Maze m(10, 30);
+	int rows, column;
+	std::cin >> rows >> column;
+
+	Maze m(rows, column);
 	m.Go();
 }
