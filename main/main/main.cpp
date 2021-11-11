@@ -1,6 +1,7 @@
 #include<iostream>
 #include<conio.h> //used for _getch()
 #include<windows.h>
+#include<cstdlib> //used for rand()
 
 class Maze
 {
@@ -102,6 +103,90 @@ short Maze::GetKeyCode()
 		keyCode = _getch();
 
 	return keyCode;
+}
+
+void Maze::GeneratePath()
+{
+	const char space = ' ';
+	short newRow, newColumn;
+	unsigned short r = 0, c = 0, cycles = 0, neighbour;
+
+	bool possible;
+
+	maze[0][0] = space;
+
+	srand(time(NULL));
+	do
+	{
+		cycles = 0;
+		do
+		{
+			possible = true;
+
+			if (cycles <= rows * columns)
+			{
+				newRow = r;
+				newColumn = c;
+				cycles++;
+			}
+			else 
+			{
+				do
+				{
+					newRow = rand() % rows;
+					newColumn = rand() % columns;
+				} while (maze[newRow][newColumn] != space);
+
+				r = newRow;
+				c = newColumn;
+				cycles = 0;
+			}
+
+			neighbour = rand() % 4;
+
+			switch(neighbour)
+			{
+			case 0: newColumn--; break;
+
+			case 1: newColumn++; break;
+
+			case 2: newRow--; break;
+
+			case 3: newRow++; break;
+			}
+
+			if ((newRow < 0) || (newRow >= rows) || (newColumn < 0) || (newColumn >= columns))
+				possible = false;
+			else
+				if (maze[newRow][newColumn] == space)
+					possible = false;
+				else
+				{
+					neighbour = 0;
+
+					if ((newRow > 0) && (maze[newRow - 1][newColumn] == space))
+						neighbour++;
+
+					if ((newRow < rows - 1) && (maze[newRow + 1][newColumn] == space))
+						neighbour++;
+
+					if ((newColumn > 0) && (maze[newRow][newColumn - 1] == space))
+						neighbour++;
+
+					if ((newColumn < columns - 1) && (maze[newRow][newColumn + 1] == space))
+						neighbour++;
+
+					if (neighbour > 1)
+						possible = false;
+				}
+
+		} while (!possible);
+
+		r = newRow;
+		c = newColumn;
+		maze[newRow][newColumn] = space;
+
+	} while (!((r == rows - 1) && (c == columns - 1)));
 }
 
 int main()
