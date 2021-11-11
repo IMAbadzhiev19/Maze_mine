@@ -67,6 +67,7 @@ bool Maze::Go()
 			currentRow = newRow;
 			currentColumn = newCol;
 			maze[currentRow][currentColumn] = '*';
+			Show();
 		}
 		else
 			Beep(500, 250);
@@ -90,7 +91,11 @@ bool Maze::Init()
 		for (unsigned short c = 0; c < columns; maze[r][c] = 'X', c++);
 	}
 
+	GeneratePath();
 	maze[0][0] = '*';
+
+	Show();
+
 	return true;
 }
 
@@ -192,5 +197,5 @@ void Maze::GeneratePath()
 int main()
 {
 	Maze m(10, 30);
-	m.Show();
+	m.Go();
 }
