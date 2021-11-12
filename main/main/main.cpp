@@ -5,6 +5,8 @@
 #include<iomanip>
 #include<string>
 
+char character = char(1);
+
 class Maze
 {
 public:
@@ -89,7 +91,7 @@ bool Maze::Go()
 			maze[currentRow][currentColumn] = ' ';
 			currentRow = newRow;
 			currentColumn = newCol;
-			maze[currentRow][currentColumn] = '*';
+			maze[currentRow][currentColumn] = character;
 			Show();
 		}
 
@@ -113,7 +115,9 @@ bool Maze::Init()
 	}
 
 	GeneratePath();
-	maze[0][0] = '*';
+
+
+	maze[0][0] = character;
 	maze[rows - 1][columns - 1] = 'F';
 
 	Show();
@@ -225,6 +229,77 @@ void gotoXY(int x, int y)
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coords);
 }
 
+void characterOptions()
+{
+	system("cls");
+
+	bool flag = true;
+	int y = 2, choice = 0;
+
+	while (flag == true)
+	{
+		gotoXY(5, 0); std::cout << "Character";
+		gotoXY(5, 2); std::cout << "First: " << char(1);
+		gotoXY(5, 3); std::cout << "Second: " << char(2);
+		gotoXY(5, 4); std::cout << "Third: " << char(3);
+		gotoXY(5, 5); std::cout << "Fourth: " << char(4);
+		gotoXY(5, 6); std::cout << "Back\n";
+
+		system("pause>nul");
+
+		if (GetAsyncKeyState(VK_DOWN) && y != 6)
+		{
+			gotoXY(2, y); std::cout << "  ";
+			y++;
+			gotoXY(2, y); std::cout << "-> ";
+			choice++;
+			continue;
+		}
+
+		if (GetAsyncKeyState(VK_UP) && y != 2)
+		{
+			gotoXY(2, y); std::cout << "  ";
+			y--;
+			gotoXY(2, y); std::cout << "-> ";
+			choice--;
+			continue;
+		}
+
+		if (GetAsyncKeyState(VK_RETURN))
+		{
+			system("cls");
+
+			switch (choice)
+			{
+			case 0:
+			{
+				character = char(1);
+				flag = false;
+			} break;
+			case 1:
+			{
+				character = char(2);
+				flag = false;
+			} break;
+			case 2:
+			{
+				character = char(3);
+				flag = false;
+			} break;
+			case 3:
+			{
+				character = char(4);
+				flag = false;
+			} break;
+			case 4:
+			{
+				flag = false;
+			} break;
+			} //switch
+		}
+	}
+}
+
 void colorOptions()
 {
 	system("cls");
@@ -245,18 +320,18 @@ void colorOptions()
 
 		if (GetAsyncKeyState(VK_DOWN) && y != 6)
 		{
-			gotoXY(3, y); std::cout << "  ";
+			gotoXY(2, y); std::cout << "  ";
 			y++;
-			gotoXY(3, y); std::cout << "-> ";
+			gotoXY(2, y); std::cout << "-> ";
 			choice++;
 			continue;
 		}
 
 		if (GetAsyncKeyState(VK_UP) && y != 2)
 		{
-			gotoXY(3, y); std::cout << "  ";
+			gotoXY(2, y); std::cout << "  ";
 			y--;
-			gotoXY(3, y); std::cout << "-> ";
+			gotoXY(2, y); std::cout << "-> ";
 			choice--;
 			continue;
 		}
@@ -310,21 +385,22 @@ void gameOptions()
 
 		if (GetAsyncKeyState(VK_DOWN) && y != 4)
 		{
-			gotoXY(3, y); std::cout << "  ";
+			gotoXY(2, y); std::cout << "  ";
 			y++;
-			gotoXY(3, y); std::cout << "-> ";
+			gotoXY(2, y); std::cout << "-> ";
 			choice++;
 			continue;
 		}
 
 		if (GetAsyncKeyState(VK_UP) && y != 2)
 		{
-			gotoXY(3, y); std::cout << "  ";
+			gotoXY(2, y); std::cout << "  ";
 			y--;
-			gotoXY(3, y); std::cout << "-> ";
+			gotoXY(2, y); std::cout << "-> ";
 			choice--;
 			continue;
 		}
+
 
 		if (GetAsyncKeyState(VK_RETURN))
 		{
@@ -334,7 +410,8 @@ void gameOptions()
 			{
 			case 0:
 			{
-				std::cout << "In maintenance" << std::endl;
+				characterOptions();
+				flag = false;
 			} break;
 			case 1:
 			{
@@ -361,25 +438,25 @@ void displayMenu()
 	{
 		gotoXY(5, 0); std::cout << "MAZE MENU";
 		gotoXY(5, 2); std::cout << "Maze game";
-		gotoXY(5, 3); std::cout << "Guide";
+		gotoXY(5, 3); std::cout << "Settings";
 		gotoXY(5, 4); std::cout << "Quit\n";
 
 		system("pause>nul");
 
 		if (GetAsyncKeyState(VK_DOWN) && y != 4)
 		{
-			gotoXY(3, y); std::cout << "  ";
+			gotoXY(2, y); std::cout << "  ";
 			y++;
-			gotoXY(3, y); std::cout << "-> ";
+			gotoXY(2, y); std::cout << "->";
 			choice++;
 			continue;
 		}
 
 		if (GetAsyncKeyState(VK_UP) && y != 2)
 		{
-			gotoXY(3, y); std::cout << "  ";
+			gotoXY(2, y); std::cout << "  ";
 			y--;
-			gotoXY(3, y); std::cout << "-> ";
+			gotoXY(2, y); std::cout << "->";
 			choice--;
 			continue;
 		}
