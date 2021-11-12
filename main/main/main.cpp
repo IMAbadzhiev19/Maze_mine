@@ -220,34 +220,46 @@ void characterOptions()
 {
 	system("cls");
 
-	bool flag = true;
-	int y = 2, choice = 0;
+	std::cout << "*-------------------------------------------------------------------------------------*" << std::endl;
+	std::cout << ":                                                                                     :" << std::endl;
+	std::cout << ":  _______  __   __  _______  ______    _______  _______  _______  _______  ______    :" << std::endl;
+	std::cout << ": |       ||  | |  ||   _   ||    _ |  |   _   ||       ||       ||       ||    _ |   :" << std::endl;
+	std::cout << ": |       ||  |_|  ||  |_|  ||   | ||  |  |_|  ||       ||_     _||    ___||   | ||   :" << std::endl;
+	std::cout << ": |       ||       ||       ||   |_||_ |       ||       |  |   |  |   |___ |   |_||_  :" << std::endl;
+	std::cout << ": |      _||       ||       ||    __  ||       ||      _|  |   |  |    ___||    __  | :" << std::endl;
+	std::cout << ": |     |_ |   _   ||   _   ||   |  | ||   _   ||     |_   |   |  |   |___ |   |  | | :" << std::endl;
+	std::cout << ": |_______||__| |__||__| |__||___|  |_||__| |__||_______|  |___|  |_______||___|  |_| :" << std::endl;
+	std::cout << ":                                                                                     :" << std::endl;
+	std::cout << ":                                                                                     :" << std::endl;
+	std::cout << "*-------------------------------------------------------------------------------------*" << std::endl;
 
-	while (flag == true)
+	bool here = true;
+	int y = 13, choice = 0;
+
+	while (here == true)
 	{
-		gotoXY(5, 0); std::cout << "Character";
-		gotoXY(5, 2); std::cout << "First: " << char(1);
-		gotoXY(5, 3); std::cout << "Second: " << char(2);
-		gotoXY(5, 4); std::cout << "Third: " << char(3);
-		gotoXY(5, 5); std::cout << "Fourth: " << char(4);
-		gotoXY(5, 6); std::cout << "Back\n";
+		gotoXY(37, 13); std::cout << "Character";
+		gotoXY(37, 14); std::cout << "First: " << char(1);
+		gotoXY(37, 15); std::cout << "Second: " << char(2);
+		gotoXY(37, 16); std::cout << "Third: " << char(3);
+		gotoXY(37, 17); std::cout << "Fourth: " << char(4);
 
 		system("pause>nul");
 
-		if (GetAsyncKeyState(VK_DOWN) && y != 6)
+		if (GetAsyncKeyState(VK_DOWN) && y != 17)
 		{
-			gotoXY(2, y); std::cout << "  ";
+			gotoXY(34, y); std::cout << "  ";
 			y++;
-			gotoXY(2, y); std::cout << "-> ";
+			gotoXY(34, y); std::cout << "-> ";
 			choice++;
 			continue;
 		}
 
-		if (GetAsyncKeyState(VK_UP) && y != 2)
+		if (GetAsyncKeyState(VK_UP) && y != 13)
 		{
-			gotoXY(2, y); std::cout << "  ";
+			gotoXY(34, y); std::cout << "  ";
 			y--;
-			gotoXY(2, y); std::cout << "-> ";
+			gotoXY(34, y); std::cout << "-> ";
 			choice--;
 			continue;
 		}
@@ -261,26 +273,22 @@ void characterOptions()
 			case 0:
 			{
 				character = char(1);
-				flag = false;
+				here = false;
 			} break;
 			case 1:
 			{
 				character = char(2);
-				flag = false;
+				here = false;
 			} break;
 			case 2:
 			{
 				character = char(3);
-				flag = false;
+				here = false;
 			} break;
 			case 3:
 			{
-				character = char(4);
-				flag = false;
-			} break;
-			case 4:
-			{
-				flag = false;
+				character = char(3);
+				here = false;
 			} break;
 			} //switch
 		}
@@ -291,21 +299,20 @@ void colorOptions()
 {
 	system("cls");
 
-	bool flag = true;
+	bool here1 = true;
 	int y = 2, choice = 0;
 
-	while (flag == true)
+	while (here1 == true)
 	{
 		gotoXY(5, 0); std::cout << "Colors";
 		gotoXY(5, 2); std::cout << "Red";
 		gotoXY(5, 3); std::cout << "Green";
 		gotoXY(5, 4); std::cout << "Aqua";
 		gotoXY(5, 5); std::cout << "Purple";
-		gotoXY(5, 6); std::cout << "Back\n";
 
 		system("pause>nul");
 
-		if (GetAsyncKeyState(VK_DOWN) && y != 6)
+		if (GetAsyncKeyState(VK_DOWN) && y != 5)
 		{
 			gotoXY(2, y); std::cout << "  ";
 			y++;
@@ -332,22 +339,22 @@ void colorOptions()
 			case 0:
 			{
 				system("color 4");
+				here1 = false;
 			} break;
 			case 1:
 			{
 				system("color 2");
+				here1 = false;
 			} break;
 			case 2:
 			{
 				system("color 3");
+				here1 = false;
 			} break;
 			case 3:
 			{
 				system("color 5");
-			} break;
-			case 4:
-			{
-				flag = false;
+				here1 = false;
 			} break;
 			} //switch
 		}
@@ -358,10 +365,10 @@ void gameOptions()
 {
 	system("cls");
 
-	bool flag = true;
+	bool here2 = true;
 	int y = 2, choice = 0;
 
-	while (flag == true)
+	while (here2 == true)
 	{
 		gotoXY(5, 0); std::cout << "Options";
 		gotoXY(5, 2); std::cout << "Characters";
@@ -398,16 +405,14 @@ void gameOptions()
 			case 0:
 			{
 				characterOptions();
-				flag = false;
 			} break;
 			case 1:
 			{
 				colorOptions();
-				flag = false;
 			} break;
 			case 2:
 			{
-				flag = false;
+				here2 = false;
 			} break;
 			} //switch
 		}
