@@ -138,14 +138,11 @@ short Maze::GetKeyCode()
 
 void Maze::GeneratePath()
 {
-	const char space = ' ';
-	short newRow, newColumn;
-	unsigned short r = 0, c = 0, cycles = 0, neighbour;
-
+	const char label = ' ';
+	short nr, nc;
+	unsigned short r = 0, c = 0, cycles, nb;
 	bool possible;
-
-	maze[0][0] = space;
-
+	maze[0][0] = label;
 	srand(time(NULL));
 	do
 	{
@@ -153,70 +150,60 @@ void Maze::GeneratePath()
 		do
 		{
 			possible = true;
-
-			if (cycles <= rows * columns)
+			if (cycles < rows * columns)
 			{
-				newRow = r;
-				newColumn = c;
+				nr = r;
+				nc = c;
 				cycles++;
 			}
-			else 
+			else // cycles is to big
 			{
+				// we need to find random cycle in maze, that contains symbol from const label
 				do
 				{
-					newRow = rand() % rows;
-					newColumn = rand() % columns;
-				} while (maze[newRow][newColumn] != space);
-
-				r = newRow;
-				c = newColumn;
+					nr = rand() % rows; // now nr contains value between 0 and rows
+					nc = rand() % columns; // now nc contains value between 0 and columns
+				} while (maze[nr][nc] != label);
+				r = nr;
+				c = nc;
 				cycles = 0;
 			}
-
-			neighbour = rand() % 4;
-
-			switch(neighbour)
+			nb = rand();
+			nb = nb % 4;
+			switch (nb)
 			{
-			case 0: newColumn--; break;
-
-			case 1: newColumn++; break;
-
-			case 2: newRow--; break;
-
-			case 3: newRow++; break;
-			}
-
-			if ((newRow < 0) || (newRow >= rows) || (newColumn < 0) || (newColumn >= columns))
+			case 0:nc--;
+				break;
+			case 1:nc++;
+				break;
+			case 2:nr--;
+				break;
+			case 3:nr++;
+				break;
+			} // switch
+			if ((nr < 0) || (nr >= rows) || (nc < 0) || (nc >= columns))
 				possible = false;
 			else
-				if (maze[newRow][newColumn] == space)
+				if (maze[nr][nc] == label)
 					possible = false;
 				else
 				{
-					neighbour = 0;
-
-					if ((newRow > 0) && (maze[newRow - 1][newColumn] == space))
-						neighbour++;
-
-					if ((newRow < rows - 1) && (maze[newRow + 1][newColumn] == space))
-						neighbour++;
-
-					if ((newColumn > 0) && (maze[newRow][newColumn - 1] == space))
-						neighbour++;
-
-					if ((newColumn < columns - 1) && (maze[newRow][newColumn + 1] == space))
-						neighbour++;
-
-					if (neighbour > 1)
+					nb = 0;
+					if ((nr > 0) && (maze[nr - 1][nc] == label))
+						nb++;
+					if ((nr < rows - 1) && (maze[nr + 1][nc] == label))
+						nb++;
+					if ((nc > 0) && (maze[nr][nc - 1] == label))
+						nb++;
+					if ((nc < columns - 1) && (maze[nr][nc + 1] == label))
+						nb++;
+					if (nb > 1)
 						possible = false;
 				}
-
 		} while (!possible);
-
-		r = newRow;
-		c = newColumn;
-		maze[newRow][newColumn] = space;
-
+		r = nr;
+		c = nc;
+		maze[r][c] = label;
 	} while (!((r == rows - 1) && (c == columns - 1)));
 }
 
