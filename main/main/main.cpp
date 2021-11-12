@@ -3,7 +3,6 @@
 #include<windows.h>
 #include<cstdlib> //used for rand()
 #include<iomanip>
-#include<string>
 
 char character = char(1);
 
