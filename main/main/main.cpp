@@ -234,11 +234,10 @@ void characterOptions()
 	std::cout << "*-------------------------------------------------------------------------------------*" << std::endl;
 
 	bool here = true;
-	int y = 13, choice = 0;
+	int y = 14, choice = 0;
 
 	while (here == true)
 	{
-		gotoXY(37, 13); std::cout << "Character";
 		gotoXY(37, 14); std::cout << "First: " << char(1);
 		gotoXY(37, 15); std::cout << "Second: " << char(2);
 		gotoXY(37, 16); std::cout << "Third: " << char(3);
@@ -255,7 +254,7 @@ void characterOptions()
 			continue;
 		}
 
-		if (GetAsyncKeyState(VK_UP) && y != 13)
+		if (GetAsyncKeyState(VK_UP) && y != 14)
 		{
 			gotoXY(34, y); std::cout << "  ";
 			y--;
@@ -299,33 +298,45 @@ void colorOptions()
 {
 	system("cls");
 
+	std::cout << "*---------------------------------------------------------*" << std::endl;
+	std::cout << ":                                                         :" << std::endl;
+	std::cout << ":  _______  _______  ___      _______  ______    _______  :" << std::endl;
+	std::cout << ": |       ||       ||   |    |       ||    _ |  |       | :" << std::endl;
+	std::cout << ": |       ||   _   ||   |    |   _   ||   | ||  |  _____| :" << std::endl;
+	std::cout << ": |       ||  | |  ||   |    |  | |  ||   |_||_ | |_____  :" << std::endl;
+	std::cout << ": |      _||  |_|  ||   |___ |  |_|  ||    __  ||_____  | :" << std::endl;
+	std::cout << ": |     |_ |       ||       ||       ||   |  | | _____| | :" << std::endl;
+	std::cout << ": |_______||_______||_______||_______||___|  |_||_______| :" << std::endl;
+	std::cout << ":                                                         :" << std::endl;
+	std::cout << ":                                                         :" << std::endl;
+	std::cout << "*---------------------------------------------------------*" << std::endl;
+
 	bool here1 = true;
-	int y = 2, choice = 0;
+	int y = 14, choice = 0;
 
 	while (here1 == true)
 	{
-		gotoXY(5, 0); std::cout << "Colors";
-		gotoXY(5, 2); std::cout << "Red";
-		gotoXY(5, 3); std::cout << "Green";
-		gotoXY(5, 4); std::cout << "Aqua";
-		gotoXY(5, 5); std::cout << "Purple";
+		gotoXY(25, 14); std::cout << "Red";
+		gotoXY(25, 15); std::cout << "Green";
+		gotoXY(25, 16); std::cout << "Aqua";
+		gotoXY(25, 17); std::cout << "Purple";
 
 		system("pause>nul");
 
-		if (GetAsyncKeyState(VK_DOWN) && y != 5)
+		if (GetAsyncKeyState(VK_DOWN) && y != 17)
 		{
-			gotoXY(2, y); std::cout << "  ";
+			gotoXY(22, y); std::cout << "  ";
 			y++;
-			gotoXY(2, y); std::cout << "-> ";
+			gotoXY(22, y); std::cout << "-> ";
 			choice++;
 			continue;
 		}
 
-		if (GetAsyncKeyState(VK_UP) && y != 2)
+		if (GetAsyncKeyState(VK_UP) && y != 14)
 		{
-			gotoXY(2, y); std::cout << "  ";
+			gotoXY(22, y); std::cout << "  ";
 			y--;
-			gotoXY(2, y); std::cout << "-> ";
+			gotoXY(22, y); std::cout << "-> ";
 			choice--;
 			continue;
 		}
@@ -422,33 +433,45 @@ void gameOptions()
 void displayMenu()
 {
 	system("cls");
-	int y = 2, choice = 0;
+	int y = 13, choice = 0;
 
 	bool flag = true;
 
+	std::cout << "*--------------------------------------*" << std::endl;
+	std::cout << ":                                      :" << std::endl;
+	std::cout << ":  __   __  _______  _______  _______  :" << std::endl;
+	std::cout << ": |  |_|  ||   _   ||       ||       | :" << std::endl;
+	std::cout << ": |       ||  |_|  ||____   ||    ___| :" << std::endl;
+	std::cout << ": |       ||       | ____|  ||   |___  :" << std::endl;
+	std::cout << ": |       ||       || ______||    ___| :" << std::endl;
+	std::cout << ": | ||_|| ||   _   || |_____ |   |___  :" << std::endl;
+	std::cout << ": |_|   |_||__| |__||_______||_______| :" << std::endl;
+	std::cout << ":                                      :" << std::endl;
+	std::cout << ":                                      :" << std::endl;
+	std::cout << "*--------------------------------------*" << std::endl;
+
 	while (flag == true)
 	{
-		gotoXY(5, 0); std::cout << "MAZE MENU";
-		gotoXY(5, 2); std::cout << "Maze game";
-		gotoXY(5, 3); std::cout << "Settings";
-		gotoXY(5, 4); std::cout << "Quit\n";
+		gotoXY(15, 13); std::cout << "Maze game";
+		gotoXY(15, 14); std::cout << "Settings";
+		gotoXY(15, 15); std::cout << "Quit\n";
 
 		system("pause>nul");
 
-		if (GetAsyncKeyState(VK_DOWN) && y != 4)
+		if (GetAsyncKeyState(VK_DOWN) && y != 15)
 		{
-			gotoXY(2, y); std::cout << "  ";
+			gotoXY(13, y); std::cout << "  ";
 			y++;
-			gotoXY(2, y); std::cout << "->";
+			gotoXY(13, y); std::cout << "->";
 			choice++;
 			continue;
 		}
 
-		if (GetAsyncKeyState(VK_UP) && y != 2)
+		if (GetAsyncKeyState(VK_UP) && y != 13)
 		{
-			gotoXY(2, y); std::cout << "  ";
+			gotoXY(13, y); std::cout << "  ";
 			y--;
-			gotoXY(2, y); std::cout << "->";
+			gotoXY(13, y); std::cout << "->";
 			choice--;
 			continue;
 		}
