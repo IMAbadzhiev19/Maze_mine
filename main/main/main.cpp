@@ -523,7 +523,11 @@ void displayMenu()
 				std::cout << "|   |   |  |       ||       |  |   _   ||   | | | |   | __  |" << std::endl;
 				std::cout << "|   |___|  |_______||_______|  |__| |__||___| |_|  |__||__| |" << std::endl;
 				std::cout << "*-----------------------------------------------------------*" << std::endl;
-				flag = false;
+				
+				Sleep(2000);
+				system("cls");
+
+				continue;
 
 			} break;
 			case 1:
@@ -533,13 +537,12 @@ void displayMenu()
 			case 2:
 			{
 				std::cout << "You have successfully exited" << std::endl;
-				flag = false;
+				exit(0);
 			} break;
 			} //switch
 		}
 	}
 
-	exit(0);
 }
 
 int main()
