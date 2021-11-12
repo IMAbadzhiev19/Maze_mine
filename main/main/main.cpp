@@ -497,8 +497,16 @@ void displayMenu()
 			{
 				int rows, columns;
 
-				std::cout << "Enter the height of the maze: "; std::cin >> rows;
-				std::cout << "Enter the width of the maze: "; std::cin >> columns;
+				while (true)
+				{
+					std::cout << "Enter the height of the maze: "; std::cin >> rows;
+					std::cout << "Enter the width of the maze: "; std::cin >> columns;
+
+					if (rows >= 0 && columns >= 0)
+						break;
+					else
+						system("cls");
+				}
 
 				Maze maze(rows, columns);
 				maze.Go();
