@@ -220,24 +220,24 @@ void characterOptions()
 {
 	system("cls");
 
-	std::cout << "*-------------------------------------------------------------------------------------*" << std::endl;
-	std::cout << ":                                                                                     :" << std::endl;
-	std::cout << ":  _______  __   __  _______  ______    _______  _______  _______  _______  ______    :" << std::endl;
-	std::cout << ": |       ||  | |  ||   _   ||    _ |  |   _   ||       ||       ||       ||    _ |   :" << std::endl;
-	std::cout << ": |       ||  |_|  ||  |_|  ||   | ||  |  |_|  ||       ||_     _||    ___||   | ||   :" << std::endl;
-	std::cout << ": |       ||       ||       ||   |_||_ |       ||       |  |   |  |   |___ |   |_||_  :" << std::endl;
-	std::cout << ": |      _||       ||       ||    __  ||       ||      _|  |   |  |    ___||    __  | :" << std::endl;
-	std::cout << ": |     |_ |   _   ||   _   ||   |  | ||   _   ||     |_   |   |  |   |___ |   |  | | :" << std::endl;
-	std::cout << ": |_______||__| |__||__| |__||___|  |_||__| |__||_______|  |___|  |_______||___|  |_| :" << std::endl;
-	std::cout << ":                                                                                     :" << std::endl;
-	std::cout << ":                                                                                     :" << std::endl;
-	std::cout << "*-------------------------------------------------------------------------------------*" << std::endl;
-
 	bool here = true;
 	int y = 14, choice = 0;
 
 	while (here == true)
 	{
+		gotoXY(0, 0); std::cout << "*-------------------------------------------------------------------------------------*" << std::endl;
+		gotoXY(0, 1); std::cout << ":                                                                                     :" << std::endl;
+		gotoXY(0, 2); std::cout << ":  _______  __   __  _______  ______    _______  _______  _______  _______  ______    :" << std::endl;
+		gotoXY(0, 3); std::cout << ": |       ||  | |  ||   _   ||    _ |  |   _   ||       ||       ||       ||    _ |   :" << std::endl;
+		gotoXY(0, 4); std::cout << ": |       ||  |_|  ||  |_|  ||   | ||  |  |_|  ||       ||_     _||    ___||   | ||   :" << std::endl;
+		gotoXY(0, 5); std::cout << ": |       ||       ||       ||   |_||_ |       ||       |  |   |  |   |___ |   |_||_  :" << std::endl;
+		gotoXY(0, 6); std::cout << ": |      _||       ||       ||    __  ||       ||      _|  |   |  |    ___||    __  | :" << std::endl;
+		gotoXY(0, 7); std::cout << ": |     |_ |   _   ||   _   ||   |  | ||   _   ||     |_   |   |  |   |___ |   |  | | :" << std::endl;
+		gotoXY(0, 8); std::cout << ": |_______||__| |__||__| |__||___|  |_||__| |__||_______|  |___|  |_______||___|  |_| :" << std::endl;
+		gotoXY(0, 9); std::cout << ":                                                                                     :" << std::endl;
+		gotoXY(0, 10); std::cout << ":                                                                                     :" << std::endl;
+		gotoXY(0, 11); std::cout << "*-------------------------------------------------------------------------------------*" << std::endl;
+
 		gotoXY(37, 14); std::cout << "First: " << char(1);
 		gotoXY(37, 15); std::cout << "Second: " << char(2);
 		gotoXY(37, 16); std::cout << "Third: " << char(3);
@@ -298,24 +298,24 @@ void colorOptions()
 {
 	system("cls");
 
-	std::cout << "*---------------------------------------------------------*" << std::endl;
-	std::cout << ":                                                         :" << std::endl;
-	std::cout << ":  _______  _______  ___      _______  ______    _______  :" << std::endl;
-	std::cout << ": |       ||       ||   |    |       ||    _ |  |       | :" << std::endl;
-	std::cout << ": |       ||   _   ||   |    |   _   ||   | ||  |  _____| :" << std::endl;
-	std::cout << ": |       ||  | |  ||   |    |  | |  ||   |_||_ | |_____  :" << std::endl;
-	std::cout << ": |      _||  |_|  ||   |___ |  |_|  ||    __  ||_____  | :" << std::endl;
-	std::cout << ": |     |_ |       ||       ||       ||   |  | | _____| | :" << std::endl;
-	std::cout << ": |_______||_______||_______||_______||___|  |_||_______| :" << std::endl;
-	std::cout << ":                                                         :" << std::endl;
-	std::cout << ":                                                         :" << std::endl;
-	std::cout << "*---------------------------------------------------------*" << std::endl;
-
 	bool here1 = true;
 	int y = 14, choice = 0;
 
 	while (here1 == true)
 	{
+		gotoXY(0, 0); std::cout << "*---------------------------------------------------------*" << std::endl;
+		gotoXY(0, 1); std::cout << ":                                                         :" << std::endl;
+		gotoXY(0, 2); std::cout << ":  _______  _______  ___      _______  ______    _______  :" << std::endl;
+		gotoXY(0, 3); std::cout << ": |       ||       ||   |    |       ||    _ |  |       | :" << std::endl;
+		gotoXY(0, 4); std::cout << ": |       ||   _   ||   |    |   _   ||   | ||  |  _____| :" << std::endl;
+		gotoXY(0, 5); std::cout << ": |       ||  | |  ||   |    |  | |  ||   |_||_ | |_____  :" << std::endl;
+		gotoXY(0, 6); std::cout << ": |      _||  |_|  ||   |___ |  |_|  ||    __  ||_____  | :" << std::endl;
+		gotoXY(0, 7); std::cout << ": |     |_ |       ||       ||       ||   |  | | _____| | :" << std::endl;
+		gotoXY(0, 8); std::cout << ": |_______||_______||_______||_______||___|  |_||_______| :" << std::endl;
+		gotoXY(0, 9); std::cout << ":                                                         :" << std::endl;
+		gotoXY(0, 10); std::cout << ":                                                         :" << std::endl;
+		gotoXY(0, 11); std::cout << "*---------------------------------------------------------*" << std::endl;
+
 		gotoXY(25, 14); std::cout << "Red";
 		gotoXY(25, 15); std::cout << "Green";
 		gotoXY(25, 16); std::cout << "Aqua";
@@ -377,31 +377,43 @@ void gameOptions()
 	system("cls");
 
 	bool here2 = true;
-	int y = 2, choice = 0;
+	int y = 14, choice = 0;
 
 	while (here2 == true)
 	{
-		gotoXY(5, 0); std::cout << "Options";
-		gotoXY(5, 2); std::cout << "Characters";
-		gotoXY(5, 3); std::cout << "Colors";
-		gotoXY(5, 4); std::cout << "Back\n";
+		gotoXY(0, 0); std::cout << "*--------------------------------------------------------------*" << std::endl;
+		gotoXY(0, 1); std::cout << ":                                                              :" << std::endl;
+		gotoXY(0, 2); std::cout << ":  _______  _______  _______  ___   _______  __    _  _______  :" << std::endl;
+		gotoXY(0, 3); std::cout << ": |       ||       ||       ||   | |       ||  |  | ||       | :" << std::endl;
+		gotoXY(0, 4); std::cout << ": |   _   ||    _  ||_     _||   | |   _   ||   |_| ||  _____| :" << std::endl;
+		gotoXY(0, 5); std::cout << ": |  | |  ||   |_| |  |   |  |   | |  | |  ||       || |_____  :" << std::endl;
+		gotoXY(0, 6); std::cout << ": |  |_|  ||    ___|  |   |  |   | |  |_|  ||  _    ||_____  | :" << std::endl;
+		gotoXY(0, 7); std::cout << ": |       ||   |      |   |  |   | |       || | |   | _____| | :" << std::endl;
+		gotoXY(0, 8); std::cout << ": |_______||___|      |___|  |___| |_______||_|  |__||_______| :" << std::endl;
+		gotoXY(0, 9); std::cout << ":                                                              :" << std::endl;
+		gotoXY(0, 10); std::cout << ":                                                              :" << std::endl;
+		gotoXY(0, 11); std::cout << "*--------------------------------------------------------------*" << std::endl;
+
+		gotoXY(25, 14); std::cout << "Characters";
+		gotoXY(25, 15); std::cout << "Colors";
+		gotoXY(25, 16); std::cout << "Back\n";
 
 		system("pause>nul");
 
-		if (GetAsyncKeyState(VK_DOWN) && y != 4)
+		if (GetAsyncKeyState(VK_DOWN) && y != 16)
 		{
-			gotoXY(2, y); std::cout << "  ";
+			gotoXY(22, y); std::cout << "  ";
 			y++;
-			gotoXY(2, y); std::cout << "-> ";
+			gotoXY(22, y); std::cout << "-> ";
 			choice++;
 			continue;
 		}
 
-		if (GetAsyncKeyState(VK_UP) && y != 2)
+		if (GetAsyncKeyState(VK_UP) && y != 14)
 		{
-			gotoXY(2, y); std::cout << "  ";
+			gotoXY(22, y); std::cout << "  ";
 			y--;
-			gotoXY(2, y); std::cout << "-> ";
+			gotoXY(22, y); std::cout << "-> ";
 			choice--;
 			continue;
 		}
@@ -437,21 +449,21 @@ void displayMenu()
 
 	bool flag = true;
 
-	std::cout << "*--------------------------------------*" << std::endl;
-	std::cout << ":                                      :" << std::endl;
-	std::cout << ":  __   __  _______  _______  _______  :" << std::endl;
-	std::cout << ": |  |_|  ||   _   ||       ||       | :" << std::endl;
-	std::cout << ": |       ||  |_|  ||____   ||    ___| :" << std::endl;
-	std::cout << ": |       ||       | ____|  ||   |___  :" << std::endl;
-	std::cout << ": |       ||       || ______||    ___| :" << std::endl;
-	std::cout << ": | ||_|| ||   _   || |_____ |   |___  :" << std::endl;
-	std::cout << ": |_|   |_||__| |__||_______||_______| :" << std::endl;
-	std::cout << ":                                      :" << std::endl;
-	std::cout << ":                                      :" << std::endl;
-	std::cout << "*--------------------------------------*" << std::endl;
-
 	while (flag == true)
 	{
+		gotoXY(0, 0); std::cout << "*--------------------------------------*" << std::endl;
+		gotoXY(0, 1); std::cout << ":                                      :" << std::endl;
+		gotoXY(0, 2); std::cout << ":  __   __  _______  _______  _______  :" << std::endl;
+		gotoXY(0, 3); std::cout << ": |  |_|  ||   _   ||       ||       | :" << std::endl;
+		gotoXY(0, 4); std::cout << ": |       ||  |_|  ||____   ||    ___| :" << std::endl;
+		gotoXY(0, 5); std::cout << ": |       ||       | ____|  ||   |___  :" << std::endl;
+		gotoXY(0, 6); std::cout << ": |       ||       || ______||    ___| :" << std::endl;
+		gotoXY(0, 7); std::cout << ": | ||_|| ||   _   || |_____ |   |___  :" << std::endl;
+		gotoXY(0, 8); std::cout << ": |_|   |_||__| |__||_______||_______| :" << std::endl;
+		gotoXY(0, 9); std::cout << ":                                      :" << std::endl;
+		gotoXY(0, 10); std::cout << ":                                      :" << std::endl;
+		gotoXY(0, 11); std::cout << "*--------------------------------------*" << std::endl;
+
 		gotoXY(15, 13); std::cout << "Maze game";
 		gotoXY(15, 14); std::cout << "Settings";
 		gotoXY(15, 15); std::cout << "Quit\n";
