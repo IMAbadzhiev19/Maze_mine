@@ -2,6 +2,8 @@
 #include<conio.h> //used for _getch()
 #include<windows.h>
 #include<cstdlib> //used for rand()
+#include<iomanip>
+#include<string>
 
 class Maze
 {
@@ -82,7 +84,7 @@ bool Maze::Go()
 		default: Beep(500, 250); break;
 		}
 
-		if ((newRow >= 0) && (newRow < rows) && (newCol >= 0) && (newCol < columns) && (maze[newRow][newCol] == ' '))
+		if ((newRow >= 0) && (newRow < rows) && (newCol >= 0) && (newCol < columns) && ((maze[newRow][newCol] == ' ') || maze[newRow][newCol] == 'F'))
 		{
 			maze[currentRow][currentColumn] = ' ';
 			currentRow = newRow;
@@ -112,6 +114,7 @@ bool Maze::Init()
 
 	GeneratePath();
 	maze[0][0] = '*';
+	maze[rows - 1][columns - 1] = 'F';
 
 	Show();
 
@@ -213,6 +216,11 @@ void Maze::GeneratePath()
 	} while (!((r == rows - 1) && (c == columns - 1)));
 }
 
+void choiceColor(int color)
+{
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
+}
+
 void gotoXY(int x, int y)
 {
 	COORD coords;
@@ -222,11 +230,14 @@ void gotoXY(int x, int y)
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coords);
 }
 
+void gameOptions()
+{
+	
+}
+
 void displayMenu()
 {
 	system("cls");
-
-	char key;
 	int y = 2, choice = 0;
 
 	bool flag = true;
@@ -276,16 +287,13 @@ void displayMenu()
 				Maze maze(rows, columns);
 				maze.Go();
 
-				system("cls");
-
-				std::cout << "\nThe game has ended" << std::endl;
+				std::cout << std::endl << std::setw(65) << "The game has ended" << std::endl;
 				flag = false;
 
 			} break;
 			case 1:
 			{
-				std::cout << "In maintenance" << std::endl;
-				flag = false;
+				
 			} break;
 			case 2:
 			{
@@ -301,5 +309,5 @@ void displayMenu()
 
 int main()
 {
-	displayMenu();
+	
 }
