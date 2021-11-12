@@ -504,7 +504,18 @@ void displayMenu()
 				Maze maze(rows, columns);
 				maze.Go();
 
-				std::cout << std::endl << std::setw(65) << "The game has ended" << std::endl;
+				Sleep(1000);
+				system("cls");
+
+				std::cout << std::endl << "*-----------------------------------------------------------*" << std::endl;
+				std::cout << "|  __   __  _______  __   __    _     _  ___   __    _  __  |" << std::endl;
+				std::cout << "| |  | |  ||       ||  | |  |  | | _ | ||   | |  |  | ||  | |" << std::endl;
+				std::cout << "| |  |_|  ||   _   ||  | |  |  | || || ||   | |   |_| ||  | |" << std::endl;
+				std::cout << "| |       ||  | |  ||  |_|  |  |       ||   | |       ||  | |" << std::endl;
+				std::cout << "| |_     _||  |_|  ||       |  |       ||   | |  _    ||__| |" << std::endl;
+				std::cout << "|   |   |  |       ||       |  |   _   ||   | | | |   | __  |" << std::endl;
+				std::cout << "|   |___|  |_______||_______|  |__| |__||___| |_|  |__||__| |" << std::endl;
+				std::cout << "*-----------------------------------------------------------*" << std::endl;
 				flag = false;
 
 			} break;
