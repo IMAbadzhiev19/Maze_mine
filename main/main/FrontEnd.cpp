@@ -5,6 +5,8 @@
 #include "FrontEnd.h"
 #include "BackEnd.h"
 
+char character = char(1);
+
 void gotoXY(int x, int y)
 {
 	COORD coords;
