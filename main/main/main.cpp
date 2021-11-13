@@ -640,18 +640,18 @@ void displayMenu()
 
 		if (GetAsyncKeyState(VK_DOWN) && y != 15)
 		{
-			gotoXY(13, y); std::cout << "  ";
+			gotoXY(12, y); std::cout << "  ";
 			y++;
-			gotoXY(13, y); std::cout << "->";
+			gotoXY(12, y); std::cout << "->";
 			choice++;
 			continue;
 		}
 
 		if (GetAsyncKeyState(VK_UP) && y != 13)
 		{
-			gotoXY(13, y); std::cout << "  ";
+			gotoXY(12, y); std::cout << "  ";
 			y--;
-			gotoXY(13, y); std::cout << "->";
+			gotoXY(12, y); std::cout << "->";
 			choice--;
 			continue;
 		}
