@@ -67,6 +67,7 @@ void Maze::Show()
 
 bool Maze::Go()
 {
+	unsigned int moves = 0;
 	short code, newRow, newCol;
 
 	do
@@ -91,7 +92,11 @@ bool Maze::Go()
 			currentRow = newRow;
 			currentColumn = newCol;
 			maze[currentRow][currentColumn] = character;
+
 			Show();
+
+			moves++;
+			std::cout << "\n\nMoves: " << moves;
 		}
 
 	} while ((currentRow != rows - 1) || (currentColumn != columns - 1));
@@ -114,7 +119,6 @@ bool Maze::Init()
 	}
 
 	GeneratePath();
-
 
 	maze[0][0] = character;
 	maze[rows - 1][columns - 1] = 'F';
