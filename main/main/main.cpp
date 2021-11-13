@@ -371,6 +371,85 @@ void colorOptions()
 	}
 }
 
+void mazeDifficulties()
+{
+	system("cls");
+
+	bool here1 = true;
+	int y = 14, choice = 0;
+
+	while (here1 == true)
+	{
+		gotoXY(0, 0); std::cout << "*--------------------------------------------------------------------------------------*" << std::endl;
+		gotoXY(0, 1); std::cout << ":                                                                                      :" << std::endl;
+		gotoXY(0, 2); std::cout << ":  ______   ___   _______  _______  ___   _______  __   __  ___      _______  __   __  :" << std::endl;
+		gotoXY(0, 3); std::cout << ": |      | |   | |       ||       ||   | |       ||  | |  ||   |    |       ||  | |  | :" << std::endl;
+		gotoXY(0, 4); std::cout << ": |  _    ||   | |    ___||    ___||   | |       ||  | |  ||   |    |_     _||  |_|  | :" << std::endl;
+		gotoXY(0, 5); std::cout << ": | | |   ||   | |   |___ |   |___ |   | |       ||  |_|  ||   |      |   |  |       | :" << std::endl;
+		gotoXY(0, 6); std::cout << ": | |_|   ||   | |    ___||    ___||   | |      _||       ||   |___   |   |  |_     _| :" << std::endl;
+		gotoXY(0, 7); std::cout << ": |       ||   | |   |    |   |    |   | |     |_ |       ||       |  |   |    |   |   :" << std::endl;
+		gotoXY(0, 8); std::cout << ": |______| |___| |___|    |___|    |___| |_______||_______||_______|  |___|    |___|   :" << std::endl;
+		gotoXY(0, 9); std::cout << ":                                                                                      :" << std::endl;
+		gotoXY(0, 10);std::cout << ":                                                                                      :" << std::endl;
+		gotoXY(0, 11); std::cout << "*--------------------------------------------------------------------------------------*" << std::endl;
+
+		gotoXY(33, 14); std::cout << "Easy";
+		gotoXY(33, 15); std::cout << "Medium";
+		gotoXY(33, 16); std::cout << "Hard";
+		gotoXY(33, 17); std::cout << "Custom";
+
+		system("pause>nul");
+
+		if (GetAsyncKeyState(VK_DOWN) && y != 17)
+		{
+			gotoXY(30, y); std::cout << "  ";
+			y++;
+			gotoXY(30, y); std::cout << "-> ";
+			choice++;
+			continue;
+		}
+
+		if (GetAsyncKeyState(VK_UP) && y != 14)
+		{
+			gotoXY(30, y); std::cout << "  ";
+			y--;
+			gotoXY(30, y); std::cout << "-> ";
+			choice--;
+
+			continue;
+		}
+
+		if (GetAsyncKeyState(VK_RETURN))
+		{
+			system("cls");
+
+			switch (choice)
+			{
+			case 0:
+			{
+				system("color 4");
+				here1 = false;
+			} break;
+			case 1:
+			{
+				system("color 2");
+				here1 = false;
+			} break;
+			case 2:
+			{
+				system("color 3");
+				here1 = false;
+			} break;
+			case 3:
+			{
+				system("color 5");
+				here1 = false;
+			} break;
+			} //switch
+		}
+	}
+}
+
 void gameOptions()
 {
 	system("cls");
@@ -495,38 +574,7 @@ void displayMenu()
 			{
 			case 0:
 			{
-				int rows, columns;
-
-				while (true)
-				{
-					std::cout << "Enter the height of the maze: "; std::cin >> rows;
-					std::cout << "Enter the width of the maze: "; std::cin >> columns;
-
-					if (rows >= 0 && columns >= 0)
-						break;
-					else
-						system("cls");
-				}
-
-				Maze maze(rows, columns);
-				maze.Go();
-
-				Sleep(1000);
-				system("cls");
-
-				std::cout << std::endl << "*-----------------------------------------------------------*" << std::endl;
-				std::cout << "|  __   __  _______  __   __    _     _  ___   __    _  __  |" << std::endl;
-				std::cout << "| |  | |  ||       ||  | |  |  | | _ | ||   | |  |  | ||  | |" << std::endl;
-				std::cout << "| |  |_|  ||   _   ||  | |  |  | || || ||   | |   |_| ||  | |" << std::endl;
-				std::cout << "| |       ||  | |  ||  |_|  |  |       ||   | |       ||  | |" << std::endl;
-				std::cout << "| |_     _||  |_|  ||       |  |       ||   | |  _    ||__| |" << std::endl;
-				std::cout << "|   |   |  |       ||       |  |   _   ||   | | | |   | __  |" << std::endl;
-				std::cout << "|   |___|  |_______||_______|  |__| |__||___| |_|  |__||__| |" << std::endl;
-				std::cout << "*-----------------------------------------------------------*" << std::endl;
-				
-				Sleep(2000);
-				system("cls");
-
+				mazeDifficulties();
 				continue;
 
 			} break;
