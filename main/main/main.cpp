@@ -243,8 +243,8 @@ void characterOptions()
 
 		gotoXY(37, 14); std::cout << "First: " << char(1);
 		gotoXY(37, 15); std::cout << "Second: " << char(2);
-		gotoXY(37, 16); std::cout << "Third: " << char(3);
-		gotoXY(37, 17); std::cout << "Fourth: " << char(4);
+		gotoXY(37, 16); std::cout << "Third: " << char(5);
+		gotoXY(37, 17); std::cout << "Fourth: " << char(6);
 
 		system("pause>nul");
 
