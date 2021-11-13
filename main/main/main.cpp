@@ -427,22 +427,108 @@ void mazeDifficulties()
 			{
 			case 0:
 			{
-				system("color 4");
+				Maze easy_maze(10, 20);
+				easy_maze.Go();
+
+				Sleep(1000);
+				system("cls");
+
+				std::cout << std::endl << "*-----------------------------------------------------------*" << std::endl;
+				std::cout << "|  __   __  _______  __   __    _     _  ___   __    _  __  |" << std::endl;
+				std::cout << "| |  | |  ||       ||  | |  |  | | _ | ||   | |  |  | ||  | |" << std::endl;
+				std::cout << "| |  |_|  ||   _   ||  | |  |  | || || ||   | |   |_| ||  | |" << std::endl;
+				std::cout << "| |       ||  | |  ||  |_|  |  |       ||   | |       ||  | |" << std::endl;
+				std::cout << "| |_     _||  |_|  ||       |  |       ||   | |  _    ||__| |" << std::endl;
+				std::cout << "|   |   |  |       ||       |  |   _   ||   | | | |   | __  |" << std::endl;
+				std::cout << "|   |___|  |_______||_______|  |__| |__||___| |_|  |__||__| |" << std::endl;
+				std::cout << "*-----------------------------------------------------------*" << std::endl;
+
+				Sleep(2000);
+				system("cls");
+
 				here1 = false;
+
 			} break;
 			case 1:
 			{
-				system("color 2");
+				Maze medium_maze(20, 30);
+				medium_maze.Go();
+
+				Sleep(1000);
+				system("cls");
+
+				std::cout << std::endl << "*-----------------------------------------------------------*" << std::endl;
+				std::cout << "|  __   __  _______  __   __    _     _  ___   __    _  __  |" << std::endl;
+				std::cout << "| |  | |  ||       ||  | |  |  | | _ | ||   | |  |  | ||  | |" << std::endl;
+				std::cout << "| |  |_|  ||   _   ||  | |  |  | || || ||   | |   |_| ||  | |" << std::endl;
+				std::cout << "| |       ||  | |  ||  |_|  |  |       ||   | |       ||  | |" << std::endl;
+				std::cout << "| |_     _||  |_|  ||       |  |       ||   | |  _    ||__| |" << std::endl;
+				std::cout << "|   |   |  |       ||       |  |   _   ||   | | | |   | __  |" << std::endl;
+				std::cout << "|   |___|  |_______||_______|  |__| |__||___| |_|  |__||__| |" << std::endl;
+				std::cout << "*-----------------------------------------------------------*" << std::endl;
+
+				Sleep(2000);
+				system("cls");
+
 				here1 = false;
 			} break;
 			case 2:
 			{
-				system("color 3");
+				Maze hard_maze(20, 60);
+				hard_maze.Go();
+
+				Sleep(1000);
+				system("cls");
+
+				std::cout << std::endl << "*-----------------------------------------------------------*" << std::endl;
+				std::cout << "|  __   __  _______  __   __    _     _  ___   __    _  __  |" << std::endl;
+				std::cout << "| |  | |  ||       ||  | |  |  | | _ | ||   | |  |  | ||  | |" << std::endl;
+				std::cout << "| |  |_|  ||   _   ||  | |  |  | || || ||   | |   |_| ||  | |" << std::endl;
+				std::cout << "| |       ||  | |  ||  |_|  |  |       ||   | |       ||  | |" << std::endl;
+				std::cout << "| |_     _||  |_|  ||       |  |       ||   | |  _    ||__| |" << std::endl;
+				std::cout << "|   |   |  |       ||       |  |   _   ||   | | | |   | __  |" << std::endl;
+				std::cout << "|   |___|  |_______||_______|  |__| |__||___| |_|  |__||__| |" << std::endl;
+				std::cout << "*-----------------------------------------------------------*" << std::endl;
+
+				Sleep(2000);
+				system("cls");
+
 				here1 = false;
 			} break;
 			case 3:
 			{
-				system("color 5");
+				int rows, columns;
+
+				while (true)
+				{
+					std::cout << "Enter the height of the maze: "; std::cin >> rows;
+					std::cout << "Enter the width of the maze: "; std::cin >> columns;
+
+					if (rows >= 0 && columns >= 0)
+						break;
+					else
+						system("cls");
+				}
+
+				Maze maze(rows, columns);
+				maze.Go();
+
+				Sleep(1000);
+				system("cls");
+
+				std::cout << std::endl << "*-----------------------------------------------------------*" << std::endl;
+				std::cout << "|  __   __  _______  __   __    _     _  ___   __    _  __  |" << std::endl;
+				std::cout << "| |  | |  ||       ||  | |  |  | | _ | ||   | |  |  | ||  | |" << std::endl;
+				std::cout << "| |  |_|  ||   _   ||  | |  |  | || || ||   | |   |_| ||  | |" << std::endl;
+				std::cout << "| |       ||  | |  ||  |_|  |  |       ||   | |       ||  | |" << std::endl;
+				std::cout << "| |_     _||  |_|  ||       |  |       ||   | |  _    ||__| |" << std::endl;
+				std::cout << "|   |   |  |       ||       |  |   _   ||   | | | |   | __  |" << std::endl;
+				std::cout << "|   |___|  |_______||_______|  |__| |__||___| |_|  |__||__| |" << std::endl;
+				std::cout << "*-----------------------------------------------------------*" << std::endl;
+
+				Sleep(2000);
+				system("cls");
+
 				here1 = false;
 			} break;
 			} //switch
