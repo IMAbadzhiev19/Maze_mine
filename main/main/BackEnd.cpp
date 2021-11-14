@@ -18,7 +18,7 @@ Maze::Maze(short row, short col) : rows(row), columns(col), currentRow(0), curre
 
 void Maze::Show()
 {
-	system("cls");
+	clearScreen();
 	const char fence = 'O';
 
 	for (unsigned short i = 0; i < columns + 2; i++)
@@ -124,11 +124,14 @@ short Maze::GetKeyCode()
 
 void Maze::GeneratePath()
 {
-	const char label = ' ';
+	const unsigned short maxRand = rows * columns;
+
 	short nr, nc;
-	unsigned short r = 0, c = 0, cycles, nb;
+	unsigned short r = 0, c = 0, cycles, nb, random = 0;
+
 	bool possible;
 	maze[0][0] = label;
+
 	srand(time(NULL));
 	do
 	{
@@ -142,20 +145,31 @@ void Maze::GeneratePath()
 				nc = c;
 				cycles++;
 			}
-			else // cycles is to big
+			else //cycles is to big
 			{
-				// we need to find random cycle in maze, that contains symbol from const label
-				do
+				if (random >= maxRand)
 				{
-					nr = rand() % rows; // now nr contains value between 0 and rows
-					nc = rand() % columns; // now nc contains value between 0 and columns
-				} while (maze[nr][nc] != label);
-				r = nr;
-				c = nc;
-				cycles = 0;
+					DirectDig();
+					return;
+				}
+				else
+				{
+					random++;
+					do
+					{
+						nr = rand() % rows; // now nr contains value between 0 and rows
+						nc = rand() % columns; // now nc contains value between 0 and columns
+					} while (maze[nr][nc] != label);
+
+					r = nr;
+					c = nc;
+					cycles = 0;
+				}
 			}
+
 			nb = rand();
 			nb = nb % 4;
+
 			switch (nb)
 			{
 			case 0:nc--;
@@ -191,4 +205,28 @@ void Maze::GeneratePath()
 		c = nc;
 		maze[r][c] = label;
 	} while (!((r == rows - 1) && (c == columns - 1)));
+}
+
+void Maze::DirectDig()
+{
+	unsigned short i = columns;
+
+	do {
+		i--;
+
+		if (maze[rows - 1][i] == label)
+			return;
+
+		maze[rows - 1][i] = label;
+	} while (i > 0);
+
+	i = rows - 1;
+	do
+	{
+		i--;
+		if (maze[i][0] == label)
+			return;
+
+		maze[i][0] = label;
+	} while (i > 0);
 }
