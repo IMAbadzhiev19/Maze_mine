@@ -102,6 +102,7 @@ bool Maze::Init()
 	}
 
 	GeneratePath();
+	GenerateQuestion();
 
 	maze[0][0] = character;
 	maze[rows - 1][columns - 1] = 'F';
@@ -229,4 +230,24 @@ void Maze::DirectDig()
 
 		maze[i][0] = label;
 	} while (i > 0);
+}
+
+void Maze::GenerateQuestion()
+{
+	const char question = '?';
+	unsigned short count = 0;
+
+	srand(time(NULL));
+	do
+	{
+		int newRow = rand() % rows;
+		int newCol = rand() % columns;
+
+		if (maze[newRow][newCol] == label && (newRow != 0 && newCol != 0) && (newRow != rows - 1 && newCol != columns - 1))
+		{
+			maze[newRow][newCol] = question;
+			count++;
+		}
+
+	} while (count != 7);
 }

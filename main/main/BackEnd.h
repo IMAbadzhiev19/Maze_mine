@@ -10,6 +10,7 @@ public:
 
 private:
 
+	void GenerateQuestion();
 	bool Init();
 	short GetKeyCode();
 	void GeneratePath();
