@@ -10,7 +10,6 @@ public:
 
 private:
 
-	void GenerateQuestion();
 	bool Init();
 	short GetKeyCode();
 	void GeneratePath();
@@ -19,4 +18,5 @@ private:
 	unsigned short rows, columns;
 	short currentRow, currentColumn;
 	const char label = ' ';
+	const char question = '?';
 };
