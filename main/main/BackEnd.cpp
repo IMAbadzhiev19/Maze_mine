@@ -245,8 +245,11 @@ void Maze::GenerateQuestion()
 
 		if (maze[newRow][newCol] == label && (newRow != 0 && newCol != 0) && (newRow != rows - 1 && newCol != columns - 1))
 		{
-			maze[newRow][newCol] = question;
-			count++;
+			if (maze[newRow - 1][newCol] != question && maze[newRow + 1][newCol] != question && maze[newRow][newCol + 1] != question && maze[newRow][newCol - 1] != question)
+			{
+				maze[newRow][newCol] = question;
+				count++;
+			}
 		}
 
 	} while (count != 7);
