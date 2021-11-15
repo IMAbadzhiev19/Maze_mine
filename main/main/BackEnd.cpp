@@ -69,7 +69,7 @@ bool Maze::Go()
 		default: Beep(500, 250); break;
 		}
 
-		if ((newRow >= 0) && (newRow < rows) && (newCol >= 0) && (newCol < columns) && ((maze[newRow][newCol] == ' ') || maze[newRow][newCol] == 'F' || maze[newRow][newCol] == question))
+		if ((newRow >= 0) && (newRow < rows) && (newCol >= 0) && (newCol < columns) && ((maze[newRow][newCol] == ' ') || maze[newRow][newCol] == 'F'))
 		{
 
 			maze[currentRow][currentColumn] = ' ';

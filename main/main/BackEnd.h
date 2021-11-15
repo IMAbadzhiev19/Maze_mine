@@ -14,9 +14,9 @@ private:
 	short GetKeyCode();
 	void GeneratePath();
 	void DirectDig();
+
 	char** maze;
 	unsigned short rows, columns;
 	short currentRow, currentColumn;
 	const char label = ' ';
-	const char question = '?';
 };
