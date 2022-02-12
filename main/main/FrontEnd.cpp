@@ -514,3 +514,8 @@ void displayMenu()
 	}
 
 }
+
+void finalMenu()
+{
+	displayMenu();
+}

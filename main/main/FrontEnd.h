@@ -9,3 +9,4 @@ void colorOptions();
 void mazeDifficulties();
 void gameOptions();
 void displayMenu();
+void finalMenu();
