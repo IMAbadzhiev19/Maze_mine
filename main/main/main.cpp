@@ -5,5 +5,6 @@
 
 int main()
 {
+	//Made the background color blue
 	finalMenu();
 }
